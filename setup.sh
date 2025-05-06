@@ -8,6 +8,5 @@ stow .
 mv ~/.bashrc ~/.bashrc.bak
 ln -s ~/.config/.bashrc ~/.bashrc
 
-./tmux/plugins/tpm/bin/clean_plugins
 ./tmux/plugins/tpm/bin/install_plugins
 
