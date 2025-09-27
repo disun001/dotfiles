@@ -2,10 +2,10 @@ import = ["~/.config/alacritty/tokyo-night.toml"]
 
 [window]
 padding = { x = 10, y = 10 }
-opacity = 0.80
+opacity = 0.90
 startup_mode = "Maximized"
 title = "Terminal"
 
 [font]
 normal = { family = "JetBrainsMonoNerdFont", style = "Regular" }
-size = 18
+size = 12
