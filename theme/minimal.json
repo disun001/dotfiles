@@ -51,7 +51,7 @@
         {
           "foreground": "#acb0d0",
           "style": "plain",
-          "template": ">",
+          "template": "$",
           "type": "text"
         }
       ],
