@@ -46,9 +46,12 @@ alias la="ls -A"
 alias l="ls -CF"
 alias lh="ls -CFh"
 
-# Editors
+### Editors ###
 export PATH="$HOME/.bin:$HOME/.local/bin:/usr/local/go/bin:$PATH"
 alias nvim='nvim.appimage'
+
+### Golang ###
+export PATH="$(go env GOPATH)/bin:$PATH"
 
 ### Bun ###
 export BUN_INSTALL="$HOME/.bun"
@@ -71,3 +74,11 @@ if command -v tmux >/dev/null 2>&1; then
     tmux attach-session -t work || tmux new-session -s work
   fi
 fi
+
+# pnpm
+export PNPM_HOME="/home/dimitrins/.local/share/pnpm"
+case ":$PATH:" in
+*":$PNPM_HOME:"*) ;;
+*) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+# pnpm end
