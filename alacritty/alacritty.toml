@@ -1,11 +1,21 @@
-import = ["~/.config/alacritty/tokyo-night.toml"]
+general.import = [ "~/.config/omarchy/current/theme/alacritty.toml" ]
 
-[window]
-padding = { x = 10, y = 10 }
-opacity = 0.90
-startup_mode = "Maximized"
-title = "Terminal"
+[env]
+TERM = "xterm-256color"
 
 [font]
-normal = { family = "JetBrainsMonoNerdFont", style = "Regular" }
+normal = { family = "CaskaydiaMono Nerd Font" }
+bold = { family = "CaskaydiaMono Nerd Font" }
+italic = { family = "CaskaydiaMono Nerd Font" }
 size = 12
+
+[window]
+padding.x = 14
+padding.y = 14
+decorations = "None"
+
+[keyboard]
+bindings = [
+{ key = "Insert", mods = "Shift", action = "Paste" },
+{ key = "Insert", mods = "Control", action = "Copy" }
+]
