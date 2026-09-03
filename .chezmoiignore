@@ -1,0 +1,17 @@
+.DS_Store
+
+# Never sync auth/token stores
+dot_config/gh
+dot_config/github-copilot
+dot_config/devin
+dot_config/cagent
+dot_config/sshm
+dot_config/raycast
+
+# Runtime/generated state
+dot_config/nvim/lazy-lock.json
+dot_config/nvim/.neoconf.json
+dot_config/herdr/*.log
+dot_config/herdr/session.json
+dot_config/herdr/release-notes.json
+dot_config/opencode/node_modules

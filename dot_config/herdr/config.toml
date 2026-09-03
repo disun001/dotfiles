@@ -1,0 +1,67 @@
+onboarding = false
+[keys]
+prefix = "ctrl+a"
+
+settings = "prefix+shift+s"
+reload_config = "prefix+shift+r"
+detach = "prefix+q"
+
+workspace_picker = "prefix+w"
+navigate_workspace_up = "k"
+navigate_workspace_down = "j"
+new_workspace = "prefix+shift+n"
+rename_workspace = "prefix+shift+w"
+close_workspace = "prefix+shift+d"
+
+rename_tab = "prefix+r"
+new_tab = "prefix+ctrl+c"
+previous_tab = "prefix+shift+h"
+next_tab = "prefix+shift+l"
+# last_tab not yet implemented
+
+resize_mode = "prefix+."
+split_vertical = "prefix+v"
+split_horizontal = "prefix+s"
+close_pane = "prefix+c"
+focus_pane_left = "prefix+h"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+k"
+focus_pane_right = "prefix+l"
+
+[theme]
+name = "catppuccin"
+auto_switch = false
+
+# Higher-contrast dot colors for agent status (working/blocked/done all render
+# the same "●" glyph in dots mode, so hue separation is what differentiates them).
+# Still pure Catppuccin Mocha colors, just reassigned: working -> peach (was pastel
+# yellow, too close to teal), done -> blue (was teal, too close to green/yellow).
+[theme.custom]
+yellow = "#fab387"  # peach — used for "working"
+teal = "#89b4fa"    # blue — used for "done"
+
+[ui.toast]
+delivery = "system"
+delay_seconds = 5
+
+[ui.toast.clipboard]
+enabled = true
+position = "bottom-center"
+
+[ui.sound]
+enabled = true
+
+[ui]
+prompt_new_tab_name = false
+show_agent_labels_on_pane_borders = true
+
+agent_panel_sort = "spaces"
+
+[ui.sidebar.agents]
+rows = [["state_icon", { token = "workspace", dim = true }], [{ token = "tab", bold = true, dim = false, fg = "#cdd6f4" }]]
+
+[experimental]
+pane_history = false
+
+[terminal]
+new_cwd = "follow"

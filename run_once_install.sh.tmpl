@@ -1,0 +1,32 @@
+#!/bin/sh
+# {{ .chezmoi.sourceFile }} - one-time package installer, run per-OS
+# Installs the tools that back the synced dotfiles.
+
+if [ "{{ .chezmoi.os }}" = "darwin" ]; then
+  # ---- macOS: Homebrew ----
+  if ! command -v brew >/dev/null 2>&1; then
+    echo "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi
+  brew update
+  brew install age bat btop chezmoi eza fd fzf gh gping herdr jq lazydocker lazygit ncdu neovim opencode ripgrep sshm starship tmux tree yazi zoxide
+elif [ "{{ .chezmoi.os }}" = "linux" ]; then
+  # ---- Linux (incl. WSL): apt + fallback installers ----
+  sudo apt update
+  sudo apt install -y bat btop build-essential curl fzf git jq neovim ripgrep tmux tree zoxide
+
+  # cargo-based tools (eza, yazi, fd)
+  if ! command -v cargo >/dev/null 2>&1; then
+    echo "Installing Rust..."
+    curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- -y
+    . "$HOME/.cargo/env"
+  fi
+  cargo install eza fd-find yazi-cli
+
+  # starship
+  if ! command -v starship >/dev/null 2>&1; then
+    curl -sS https://starship.rs/install.sh | sh
+  fi
+else
+  echo "No installer defined for OS: {{ .chezmoi.os }}"
+fi
